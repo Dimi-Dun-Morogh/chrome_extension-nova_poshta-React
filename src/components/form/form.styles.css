@@ -1,0 +1,12 @@
+.form-wrap {
+  width: 60%;
+  margin: auto;
+}
+
+.form-wrap input:focus {
+  box-shadow: none;
+}
+
+.form-wrap button:focus {
+  box-shadow: none;
+}
