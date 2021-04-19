@@ -7,6 +7,12 @@
   box-shadow: none;
 }
 
+ .test {
+  border-radius: .2rem !important;
+  border-bottom-left-radius: 0  !important;
+  border-top-left-radius: 0  !important;
+}
+
 .form-wrap button:focus {
   box-shadow: none;
 }

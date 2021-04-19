@@ -12,6 +12,9 @@
     "react-browser-extension-scripts": "4.0.10",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-redux": "^7.2.3",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
@@ -37,5 +40,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.2.1"
   }
 }
