@@ -1,0 +1,28 @@
+.package-info-wrap {
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #ffffffa8;
+}
+.package-info-wrap ul{
+  margin: 0;
+  padding: 0;
+}
+
+.package-info-wrap li {
+  list-style: none;
+  font-size: 16px;
+  color: #333333;
+}
+
+.package-info-wrap li:nth-child(odd) {
+  font-size: 12px;
+  color: #828282;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+}
+
+.package-info-wrap li:nth-child(4) {
+  color:red;
+  font-size: 18px;
+}

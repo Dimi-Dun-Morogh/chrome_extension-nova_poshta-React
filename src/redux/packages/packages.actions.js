@@ -1,12 +1,10 @@
 import { PackagesActionTypes } from "./packages.types";
 
 
-const fetchPackageInfoSuccess = (packageInfo) => {
-  return {
+const fetchPackageInfoSuccess = (packageInfo) => ({
     type: PackagesActionTypes.SET_PACKAGE_INFO,
     payload: packageInfo
-  }
-};
+  });
 
 export const fetchPackageInfo = (id, Phone) => async dispatch => {
   try {

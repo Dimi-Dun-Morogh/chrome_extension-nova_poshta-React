@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'
-import { fetchPackageInfo } from '../../redux/packages/packages.actions';
+import { useDispatch } from 'react-redux';
 import { Button, InputGroup, FormControl } from 'react-bootstrap';
 import { ImSearch } from 'react-icons/im';
+import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './form.styles.css';
 
 const Form = () => {
@@ -12,18 +12,18 @@ const Form = () => {
   const handleSubmit = () => {
     //! сделать проверку на длину
     console.log(trackNumber);
-    dispatch(fetchPackageInfo(trackNumber))
+    dispatch(fetchPackageInfo(trackNumber));
   };
 
   return (
-    <div className='form-wrap'>
-      <InputGroup className='mb-3' size='sm'>
+    <div className="form-wrap">
+      <InputGroup className="mb-3" size="sm">
         <FormControl
-          placeholder='введите номер ттн'
+          placeholder="введите номер ттн"
           onChange={(e) => setTrackNumber(e.target.value)}
         />
         <InputGroup.Prepend>
-          <Button variant='danger' className='test' onClick={handleSubmit}>
+          <Button variant="danger" className="test" onClick={handleSubmit}>
             {' '}
             <ImSearch style={{ display: 'block' }} />
           </Button>
