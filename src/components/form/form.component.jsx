@@ -23,7 +23,7 @@ const Form = () => {
           onChange={(e) => setTrackNumber(e.target.value)}
         />
         <InputGroup.Prepend>
-          <Button variant="danger" className="test" onClick={handleSubmit}>
+          <Button variant="danger" className="form-button" onClick={handleSubmit}>
             {' '}
             <ImSearch style={{ display: 'block' }} />
           </Button>

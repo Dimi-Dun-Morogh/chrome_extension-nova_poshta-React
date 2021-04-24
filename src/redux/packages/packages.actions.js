@@ -1,5 +1,14 @@
 import { PackagesActionTypes } from "./packages.types";
 
+const toggleShowDetailed = (bool)=>({
+  type: PackagesActionTypes.TOGGLE_DETAILED,
+  payload: bool
+})
+
+const setCurrentTrack = (trackNum)=>({
+  type: PackagesActionTypes.SET_CURRENT_TRACK,
+  payload: trackNum
+})
 
 const fetchPackageInfoSuccess = (packageInfo) => ({
     type: PackagesActionTypes.SET_PACKAGE_INFO,
@@ -8,6 +17,7 @@ const fetchPackageInfoSuccess = (packageInfo) => ({
 
 export const fetchPackageInfo = (id, Phone) => async dispatch => {
   try {
+    dispatch(toggleShowDetailed(false));
     const response = await fetch('https://api.novaposhta.ua/v2.0/json/', {
      method: 'POST',
      headers: {
@@ -27,7 +37,12 @@ export const fetchPackageInfo = (id, Phone) => async dispatch => {
      }),
    });
    const data = await response.json();
-   dispatch(fetchPackageInfoSuccess(data.data[0]))
+   // if Phone && PhoneError
+   dispatch(fetchPackageInfoSuccess(data.data[0]));
+   dispatch(setCurrentTrack(id))
+   if(Phone && !data.warnings[0]) {
+    dispatch(toggleShowDetailed(true))
+   }
    } catch (error) {
      console.error(error)
    }

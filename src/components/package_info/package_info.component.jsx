@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import PhoneForm from '../phone_form/phone_form.component';
 import './package_info.styles.css';
 // 20450332281236
 
 const PackageInfo = () => {
   const packageInfo = useSelector((state) => state.packages.packageInfo);
+  const showDetailed = useSelector((state) => state.packages.showDetailed);
 
   if (!packageInfo) return null;
 
@@ -15,6 +17,12 @@ const PackageInfo = () => {
     CitySender,
     CityRecipient,
     ActualDeliveryDate,
+    RecipientFullName,
+    SenderFullNameEW,
+    PhoneRecipient,
+    PhoneSender,
+    CargoDescriptionString,
+    ScheduledDeliveryDate,
   } = packageInfo;
 
   return (
@@ -32,6 +40,22 @@ const PackageInfo = () => {
         <li>дата доставки:</li>
         <li>{ActualDeliveryDate}</li>
       </ul>
+      {!showDetailed ? null : (
+        <ul>
+          <li>Имя получателя:</li>
+          <li>{RecipientFullName}</li>
+          <li>Имя отправителя:</li>
+          <li>{SenderFullNameEW}</li>
+          <li>Телефон {PhoneSender ? 'отправителя' : 'получателя'}:</li>
+          <li>{PhoneSender || PhoneRecipient}</li>
+          <li>Описание посылки:</li>
+          <li>{CargoDescriptionString}</li>
+          <li>Ожидаемое время доставки:</li>
+          <li>{ScheduledDeliveryDate}</li>
+        </ul>
+      )}
+
+      <PhoneForm />
     </div>
   );
 };

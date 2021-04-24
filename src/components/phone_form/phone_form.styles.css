@@ -1,0 +1,15 @@
+.phone-form {
+  width: 60%;
+}
+
+.phone-form input:focus {
+  box-shadow: none;
+}
+
+.phone-form-wrap span {
+  font-size: 12px;
+  color: #828282;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  width: 100%;
+}
