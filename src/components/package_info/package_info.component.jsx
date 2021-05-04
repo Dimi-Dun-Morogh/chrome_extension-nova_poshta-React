@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import PhoneForm from '../phone_form/phone_form.component';
 import './package_info.styles.css';
-// 20450332281236
+// 20400221847399
 
 const PackageInfo = () => {
   const packageInfo = useSelector((state) => state.packages.packageInfo);

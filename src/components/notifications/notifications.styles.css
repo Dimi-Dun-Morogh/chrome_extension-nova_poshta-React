@@ -1,0 +1,5 @@
+.toast {
+  position: absolute;
+  z-index: 33;
+  right: 10px;
+}

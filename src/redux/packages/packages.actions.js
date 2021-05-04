@@ -1,3 +1,4 @@
+import { errorToast } from "../notifications_store/notifications.actions";
 import { PackagesActionTypes } from "./packages.types";
 
 const toggleShowDetailed = (bool)=>({
@@ -40,8 +41,9 @@ export const fetchPackageInfo = (id, Phone) => async dispatch => {
    // if Phone && PhoneError
    dispatch(fetchPackageInfoSuccess(data.data[0]));
    dispatch(setCurrentTrack(id))
-   if(Phone && !data.warnings[0]) {
-    dispatch(toggleShowDetailed(true))
+   if(Phone ) {
+    return !data.warnings[0] ? dispatch(toggleShowDetailed(true))
+    : dispatch(errorToast('number is invalid'))
    }
    } catch (error) {
      console.error(error)
