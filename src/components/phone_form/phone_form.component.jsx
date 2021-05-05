@@ -6,8 +6,8 @@ import Validator from '../../helpers/validator';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './phone_form.styles.css';
 
-const PhoneForm = () => {
-  const [phoneNum, setPhoneNum] = useState('+380');
+const PhoneForm = ({oldPhone}) => {
+  const [phoneNum, setPhoneNum] = useState(oldPhone);
   const currentTrack = useSelector((state) => state.packages.currentTrack);
   const [validationState, setValidationState] = useState({
     errors: {

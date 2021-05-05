@@ -1,0 +1,4 @@
+export const HistoryActionTypes = {
+  SET_CURRENT_PHONE: 'SET_CURRENT_PHONE',
+  SET_HISTORY_TRACKS: 'SET_HISTORY_TRACKS'
+}

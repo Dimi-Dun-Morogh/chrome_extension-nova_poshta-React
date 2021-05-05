@@ -11,7 +11,6 @@ export default function Validate(label, value) {
       return errors;
     }
     case 'phoneNumb': {
-      console.log(value)
       if (!value) errors.push({ label, error: 'number is required' });
       if (value.length < 12 || value.length > 12)
         errors.push({ label, error: 'Should contain 12 characters, no more no less' });

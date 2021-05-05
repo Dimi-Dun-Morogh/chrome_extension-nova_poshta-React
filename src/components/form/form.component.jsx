@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, InputGroup, FormControl, Form } from 'react-bootstrap';
 import { ImSearch } from 'react-icons/im';
 import Validator from '../../helpers/validator';
@@ -8,7 +8,9 @@ import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './form.styles.css';
 
 const FormMain = () => {
-  const [trackNumber, setTrackNumber] = useState('');
+  const currentTrack = useSelector((state) => state.packages.currentTrack);
+
+  const [trackNumber, setTrackNumber] = useState(currentTrack);
   const [validationState, setValidationState] = useState({
     errors: {
       trackNumb: [],
@@ -51,6 +53,10 @@ const FormMain = () => {
     setValidationState({ ...validationState, errors });
   };
 
+  useEffect(()=> {
+    setTrackNumber(currentTrack)
+  },[currentTrack])
+
   return (
     <div className="form-wrap">
       <Form.Group>
@@ -61,6 +67,7 @@ const FormMain = () => {
             onKeyUp={handleKeyPress}
             name="trackNumb"
             isInvalid={validationState.errors.trackNumb.length}
+            value={trackNumber}
           />
           <InputGroup.Prepend>
             <Button variant="danger" className="form-button" onClick={handleSubmit}>

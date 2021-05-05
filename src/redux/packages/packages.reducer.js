@@ -2,7 +2,7 @@ import { PackagesActionTypes } from "./packages.types";
 
 const INITIAL_STATE = {
   packageInfo: null,
-  currentTrack: null,
+  currentTrack: '',
   showDetailed: false,
 };
 

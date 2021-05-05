@@ -5,8 +5,9 @@ import './package_info.styles.css';
 // 20400221847399
 
 const PackageInfo = () => {
-  const packageInfo = useSelector((state) => state.packages.packageInfo);
-  const showDetailed = useSelector((state) => state.packages.showDetailed);
+  const oldPhone = useSelector((state) => state.history.oldPhoneNumb);
+  const packageState = useSelector((state)=>state.packages);
+  const { packageInfo, showDetailed} = packageState;
 
   if (!packageInfo) return null;
 
@@ -55,7 +56,7 @@ const PackageInfo = () => {
         </ul>
       )}
 
-      <PhoneForm />
+      <PhoneForm  oldPhone={oldPhone}/>
     </div>
   );
 };
