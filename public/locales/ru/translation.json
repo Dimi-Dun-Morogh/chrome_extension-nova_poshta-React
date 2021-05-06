@@ -1,0 +1,30 @@
+{
+  "title": "трек посылок",
+  "placeholders": {
+    "main_form": "введите номер ттн",
+    "phone_form": "введите номер телефона"
+  },
+  "package_info": {
+    "status": "статус",
+    "route": "маршрут",
+    "Delivery_address":"Адрес доставки",
+    "date_of_delivery":"дата доставки",
+    "name_of_receiver": "Имя получателя",
+    "sender_name": "Имя отправителя",
+    "phone_number": "Телефон",
+    "phone_sender": "отправителя",
+    "phone_receiver": "получателя",
+    "package_description": "Описание посылки",
+    "estimated_delivery_time": "Ожидаемое время доставки"
+  },
+  "phone_form_description": "укажите телефон получателя или отправителя для доп. информации",
+  "previous_tracks": "предыдущие запросы",
+  "error_phone":"этот номер телефона не указан в данном треке",
+  "errors": {
+    "trackNumb_required": "номер трека обязателен",
+    "trackNumb_length": "Должен содержать 14 знаков, не более не менее",
+    "phoneNumb_required": "телефонный номер обязателен",
+    "phoneNumb_length": "Должен содержать 12 знаков, не более не менее",
+    "only_numbers_allowed": "Разрешены только числа!"
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button, InputGroup, FormControl, Form } from 'react-bootstrap';
+import { useTranslation  } from 'react-i18next';
 import { ImPhone } from 'react-icons/im';
 import Validator from '../../helpers/validator';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
@@ -8,6 +9,7 @@ import './phone_form.styles.css';
 
 const PhoneForm = ({oldPhone}) => {
   const [phoneNum, setPhoneNum] = useState(oldPhone);
+  const { t } = useTranslation();
   const currentTrack = useSelector((state) => state.packages.currentTrack);
   const [validationState, setValidationState] = useState({
     errors: {
@@ -57,7 +59,7 @@ const PhoneForm = ({oldPhone}) => {
       <InputGroup className="mb-1 phone-form" size="sm">
         <FormControl
           value={phoneNum}
-          placeholder="номер телефона +380..."
+          placeholder={t('placeholders.phone_form')}
           onChange={(e) => handleInput(e)}
           onKeyUp={handleKeyPress}
           isInvalid={validationState.errors.phoneNumb.length}
@@ -71,12 +73,12 @@ const PhoneForm = ({oldPhone}) => {
         {validationState.errors.phoneNumb.length
           ? validationState.errors.phoneNumb.map(({ error }) => (
               <Form.Control.Feedback type="invalid" key={error}>
-                {error}
+                {t(error)}
               </Form.Control.Feedback>
             ))
           : null}
       </InputGroup>
-      <span>укажите телефон получателя или отправителя для доп. информации</span>
+      <span>{t('phone_form_description')}</span>
     </div>
   );
 };

@@ -1,0 +1,30 @@
+{
+  "title": "трек посилок",
+  "placeholders": {
+    "main_form": "введіть номер відправлення",
+    "phone_form": "введіть номер телефона"
+  },
+  "package_info": {
+    "status": "статус",
+    "route": "маршрут",
+    "Delivery_address": "Адреса доставки",
+    "date_of_delivery": "дата доставки",
+    "name_of_receiver": "Ім'я одержувача",
+    "sender_name": "Ім'я відправника",
+    "phone_number": "Телефон",
+    "phone_sender": "відправника",
+    "phone_receiver": "одержувача",
+    "package_description": "опис посилки",
+    "estimated_delivery_time": "Очікуваний час доставки"
+  },
+  "phone_form_description": "вкажіть телефон одержувача або відправника для доп. інформації",
+  "previous_tracks": "попередні запити",
+  "error_phone": "цей номер телефону невідомий в даному треку",
+  "errors": {
+    "trackNumb_required": "номер треку обов'язковий",
+    "trackNumb_length": "Повинен містити 14 знаків, не більше не менше",
+    "phoneNumb_required": "телефонний номер обов'язковий",
+    "phoneNumb_length": "Повинен містити 12 знаків, не більше не менше",
+    "only_numbers_allowed": "Дозволені лише числа!"
+  }
+}

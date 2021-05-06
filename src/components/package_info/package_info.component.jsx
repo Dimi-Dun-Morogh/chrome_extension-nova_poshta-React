@@ -1,13 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation  } from 'react-i18next';
 import PhoneForm from '../phone_form/phone_form.component';
 import './package_info.styles.css';
-// 20400221847399
+
 
 const PackageInfo = () => {
   const oldPhone = useSelector((state) => state.history.oldPhoneNumb);
   const packageState = useSelector((state)=>state.packages);
   const { packageInfo, showDetailed} = packageState;
+  const { t } = useTranslation();
 
   if (!packageInfo) return null;
 
@@ -29,29 +31,29 @@ const PackageInfo = () => {
   return (
     <div className="package-info-wrap">
       <span>
-        статус - {Status} {RecipientDateTime}
+        {t('package_info.status')} - {Status} {RecipientDateTime}
       </span>
       <ul>
-        <li>маршрут:</li>
+        <li>{t('package_info.route')}:</li>
         <li>
           {CitySender} - {CityRecipient}
         </li>
-        <li>Адрес доставки:</li>
+        <li>{t('package_info.Delivery_address')}:</li>
         <li>{WarehouseRecipient}</li>
-        <li>дата доставки:</li>
+        <li>{t('package_info.date_of_delivery')}:</li>
         <li>{ActualDeliveryDate}</li>
       </ul>
       {!showDetailed ? null : (
         <ul>
-          <li>Имя получателя:</li>
+          <li>{t('package_info.name_of_receiver')}:</li>
           <li>{RecipientFullName}</li>
-          <li>Имя отправителя:</li>
+          <li>{t('package_info.sender_name')}:</li>
           <li>{SenderFullNameEW}</li>
-          <li>Телефон {PhoneSender ? 'отправителя' : 'получателя'}:</li>
+          <li>{t('package_info.phone_number')} {PhoneSender ? t('package_info.phone_sender') : t('package_info.phone_receiver')}:</li>
           <li>{PhoneSender || PhoneRecipient}</li>
-          <li>Описание посылки:</li>
+          <li>{t('package_info.package_description')}:</li>
           <li>{CargoDescriptionString}</li>
-          <li>Ожидаемое время доставки:</li>
+          <li>{t('package_info.estimated_delivery_time')}:</li>
           <li>{ScheduledDeliveryDate}</li>
         </ul>
       )}

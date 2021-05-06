@@ -1,4 +1,4 @@
-import { HistoryActionTypes } from "./history.types";
+import { HistoryActionTypes } from './history.types';
 
 export const setPhoneHistory = (phone) => ({
   type: HistoryActionTypes.SET_CURRENT_PHONE,
@@ -7,5 +7,10 @@ export const setPhoneHistory = (phone) => ({
 
 export const setHistoryTracks = (newTrack) => ({
   type: HistoryActionTypes.SET_HISTORY_TRACKS,
-  payload: newTrack
-})
+  payload: newTrack,
+});
+
+export const setLanguageHistory = (lang) => ({
+  type: HistoryActionTypes.SET_LANGUAGE_HISTORY,
+  payload: lang,
+});

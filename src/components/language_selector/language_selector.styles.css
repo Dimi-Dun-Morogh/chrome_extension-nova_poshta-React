@@ -1,0 +1,9 @@
+.select_language {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+
+}
+.custom-select-sm {
+  font-size: .750rem  !important;
+}

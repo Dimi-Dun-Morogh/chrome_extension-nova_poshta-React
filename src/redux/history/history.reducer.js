@@ -4,6 +4,7 @@ import { updateHistoryTracks } from './history.utils';
 const INITIAL_STATE = {
   oldPhoneNumb: '+380',
   historyTracks: [],
+  savedLanguage: 'ua',
 };
 
 const historyReducer = (state = INITIAL_STATE, action) => {
@@ -17,6 +18,11 @@ const historyReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         historyTracks: updateHistoryTracks(state.historyTracks, action.payload),
+      };
+      case HistoryActionTypes.SET_LANGUAGE_HISTORY:
+      return {
+        ...state,
+        savedLanguage: action.payload
       };
     default:
       return state;

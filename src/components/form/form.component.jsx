@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, InputGroup, FormControl, Form } from 'react-bootstrap';
 import { ImSearch } from 'react-icons/im';
+import { useTranslation } from 'react-i18next';
 import Validator from '../../helpers/validator';
-
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './form.styles.css';
 
 const FormMain = () => {
   const currentTrack = useSelector((state) => state.packages.currentTrack);
+  const { t } = useTranslation();
 
   const [trackNumber, setTrackNumber] = useState(currentTrack);
   const [validationState, setValidationState] = useState({
@@ -53,16 +54,16 @@ const FormMain = () => {
     setValidationState({ ...validationState, errors });
   };
 
-  useEffect(()=> {
-    setTrackNumber(currentTrack)
-  },[currentTrack])
+  useEffect(() => {
+    setTrackNumber(currentTrack);
+  }, [currentTrack]);
 
   return (
     <div className="form-wrap">
       <Form.Group>
         <InputGroup className="mb-3" size="sm">
           <FormControl
-            placeholder="введите номер ттн"
+            placeholder={t('placeholders.main_form')}
             onChange={(e) => handleInput(e)}
             onKeyUp={handleKeyPress}
             name="trackNumb"
@@ -78,7 +79,7 @@ const FormMain = () => {
           {validationState.errors.trackNumb.length
             ? validationState.errors.trackNumb.map(({ error }) => (
                 <Form.Control.Feedback type="invalid" key={error}>
-                  {error}
+                  {t(error)}
                 </Form.Control.Feedback>
               ))
             : null}

@@ -1,0 +1,30 @@
+{
+  "title": "package tracker",
+  "placeholders": {
+    "main_form": "track number of package",
+    "phone_form": "enter phone number"
+  },
+  "package_info": {
+    "status": "status",
+    "route": "route",
+    "Delivery_address": "Delivery address",
+    "date_of_delivery": "date of delivery",
+    "name_of_receiver": "name of receiver",
+    "sender_name": "sender name",
+    "phone_number": "phone number",
+    "phone_sender": "sender",
+    "phone_receiver": "receiver",
+    "package_description": "package_description",
+    "estimated_delivery_time": "estimated delivery time"
+  },
+  "phone_form_description": "specify the recipient's or sender's phone number for add. information",
+  "previous_tracks": "previous tracks",
+  "error_phone": "phone number is invalid for this track",
+  "errors": {
+    "trackNumb_required": "tracknumber is required",
+    "trackNumb_length": "Should contain 14 characters, no more no less",
+    "phoneNumb_required": "phonenumber is required",
+    "phoneNumb_length": "Should contain 12 characters, no more no less",
+    "only_numbers_allowed": "Only numbers allowed!"
+  }
+}

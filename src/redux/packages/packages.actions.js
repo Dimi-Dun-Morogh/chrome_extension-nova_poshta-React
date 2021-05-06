@@ -17,8 +17,6 @@ const fetchPackageInfoSuccess = (packageInfo) => ({
   payload: packageInfo,
 });
 
-
-
 export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
   try {
     dispatch(toggleShowDetailed(false));
@@ -52,7 +50,7 @@ export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
         dispatch(setPhoneHistory(Phone));
         dispatch(toggleShowDetailed(true));
       } else {
-        dispatch(errorToast('number is invalid'));
+        dispatch(errorToast('error_phone'));
       }
     }
   } catch (error) {
