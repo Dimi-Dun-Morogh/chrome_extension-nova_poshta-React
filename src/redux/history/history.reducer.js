@@ -1,10 +1,11 @@
 import { HistoryActionTypes } from './history.types';
-import { updateHistoryTracks } from './history.utils';
+import { updateHistoryPageTracks, updateHistoryTracks } from './history.utils';
 
 const INITIAL_STATE = {
   oldPhoneNumb: '+380',
   historyTracks: [],
   savedLanguage: 'ua',
+  historyPageTracks: []
 };
 
 const historyReducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +24,11 @@ const historyReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         savedLanguage: action.payload
+      };
+      case HistoryActionTypes.SET_HISTORY_PAGE_TRACKS:
+      return {
+        ...state,
+        historyPageTracks: updateHistoryPageTracks(state.historyPageTracks, action.payload)
       };
     default:
       return state;

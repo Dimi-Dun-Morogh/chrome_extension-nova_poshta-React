@@ -1,19 +1,24 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Switch, Route, useHistory } from 'react-router-dom';
 import Header from './components/header/header.component';
-import Form from './components/form/form.component';
-import PackageInfo from './components/package_info/package_info.component';
 import Notification from './components/notifications/notifications.component';
 import { hideErrorToast } from './redux/notifications_store/notifications.actions';
-import FooterWithHistory from './components/footer_with_history/footer_with_history.component';
+import HomePage from './pages/home-page/home-page';
+import HistoryPage from './pages/history-page/history-page';
 
 function App() {
   const currentNotification = useSelector((state) => state.notifications.currentNotification);
   const showNotification = useSelector((state) => state.notifications.showNotification);
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(()=>{
+    history.push("/")
+  },[])
 
   return (
     <div className="App">
@@ -23,9 +28,10 @@ function App() {
         hideToast={() => dispatch(hideErrorToast())}
       />
       <Header />
-      <Form />
-      <PackageInfo />
-      <FooterWithHistory />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/history" component={HistoryPage} />
+      </Switch>
     </div>
   );
 }

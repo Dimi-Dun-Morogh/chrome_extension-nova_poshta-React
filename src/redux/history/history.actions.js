@@ -14,3 +14,8 @@ export const setLanguageHistory = (lang) => ({
   type: HistoryActionTypes.SET_LANGUAGE_HISTORY,
   payload: lang,
 });
+
+export const addToHistoryPage = (newPackage) =>({
+  type: HistoryActionTypes.SET_HISTORY_PAGE_TRACKS,
+  payload: newPackage
+})

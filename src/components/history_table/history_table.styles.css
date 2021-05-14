@@ -1,0 +1,12 @@
+.history-table {
+  text-align: center;
+  font-size: 0.86rem;
+}
+
+.history-table td {
+  vertical-align: middle;
+}
+
+.history-table-number {
+  cursor: pointer;
+}

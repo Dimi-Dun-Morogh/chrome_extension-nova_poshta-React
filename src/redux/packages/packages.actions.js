@@ -1,4 +1,4 @@
-import { setHistoryTracks, setPhoneHistory } from '../history/history.actions';
+import { addToHistoryPage, setHistoryTracks, setPhoneHistory } from '../history/history.actions';
 import { errorToast } from '../notifications_store/notifications.actions';
 import { PackagesActionTypes } from './packages.types';
 
@@ -37,7 +37,7 @@ export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
             },
           ],
         },
-        language: 'ru',
+        language: 'en',
       }),
     });
     const data = await response.json();
@@ -45,6 +45,7 @@ export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
     dispatch(fetchPackageInfoSuccess(data.data[0]));
     dispatch(setCurrentTrack(id));
     dispatch(setHistoryTracks(id));
+    dispatch(addToHistoryPage(data.data[0]))
     if (Phone) {
       if (!data.warnings[0]) {
         dispatch(setPhoneHistory(Phone));

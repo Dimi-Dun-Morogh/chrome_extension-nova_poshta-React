@@ -26,5 +26,10 @@
     "phoneNumb_required": "телефонний номер обов'язковий",
     "phoneNumb_length": "Повинен містити 12 знаків, не більше не менше",
     "only_numbers_allowed": "Дозволені лише числа!"
+  },
+  "history_table": {
+    "track":"ттн",
+    "route": "маршрут",
+    "status": "статус"
   }
 }

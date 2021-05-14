@@ -26,5 +26,10 @@
     "phoneNumb_required": "phonenumber is required",
     "phoneNumb_length": "Should contain 12 characters, no more no less",
     "only_numbers_allowed": "Only numbers allowed!"
+  },
+  "history_table": {
+    "track":"track",
+    "route": "route",
+    "status": "status"
   }
 }
