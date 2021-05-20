@@ -1,4 +1,7 @@
-export const updateHistoryPageTracks = (oldHistory, newPackage) => {
+import { IPackage } from '../packages/packages.types';
+
+export const updateHistoryPageTracks = (oldHistory: IPackage[],
+  newPackage: IPackage) => {
   const { Number: track } = newPackage;
   const index = oldHistory.findIndex(({ Number }) => Number === track);
   let newHistory = [...oldHistory];
@@ -9,7 +12,7 @@ export const updateHistoryPageTracks = (oldHistory, newPackage) => {
   return newHistory;
 };
 
-export const updateHistoryTracks = (oldHistory, newNumb) => {
+export const updateHistoryTracks = (oldHistory:string[], newNumb:string) => {
   const index = oldHistory.indexOf(newNumb);
   let newHistory = [...oldHistory];
   if (index !== -1) {

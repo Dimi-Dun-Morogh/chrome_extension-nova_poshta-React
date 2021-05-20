@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
@@ -12,11 +12,11 @@ const LanguageSelect = () => {
     dispatch(setLanguageHistory(lang));
   };
 
-  const {  i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
-  useEffect(()=>{
+  useEffect(() => {
     i18n.changeLanguage(savedLang);
-  },[savedLang])
+  }, [savedLang]);
 
   return (
     <Form className="select_language">

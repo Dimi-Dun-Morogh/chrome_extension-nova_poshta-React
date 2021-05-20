@@ -1,23 +1,36 @@
+import { ThunkAction } from 'redux-thunk';
+import { Action } from 'redux';
+import { IPackage, PackagesActionTypes, PackagesActionsTypes } from './packages.types';
+import { ActionHistoryTypes } from '../history/history.types';
+import { NotificationActionTypes } from '../notifications_store/notifications.types';
 import { addToHistoryPage, setHistoryTracks, setPhoneHistory } from '../history/history.actions';
 import { errorToast } from '../notifications_store/notifications.actions';
-import { PackagesActionTypes } from './packages.types';
+import { RootStateType } from '../root-reducer';
 
-const toggleShowDetailed = (bool) => ({
+type ThunkType = ThunkAction<Promise<void>,
+RootStateType,
+unknown,
+Action<NotificationActionTypes['type']>
+|Action<PackagesActionsTypes ['type']>
+|Action<ActionHistoryTypes['type']>
+>;
+
+const toggleShowDetailed = (bool:boolean) => ({
   type: PackagesActionTypes.TOGGLE_DETAILED,
   payload: bool,
 });
 
-const setCurrentTrack = (trackNum) => ({
+const setCurrentTrack = (trackNum: string) => ({
   type: PackagesActionTypes.SET_CURRENT_TRACK,
   payload: trackNum,
 });
 
-const fetchPackageInfoSuccess = (packageInfo) => ({
+const fetchPackageInfoSuccess = (packageInfo:IPackage) => ({
   type: PackagesActionTypes.SET_PACKAGE_INFO,
   payload: packageInfo,
 });
 
-export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
+export const fetchPackageInfo = (id:string, Phone?:string) :ThunkType => async (dispatch) => {
   try {
     dispatch(toggleShowDetailed(false));
     const response = await fetch('https://api.novaposhta.ua/v2.0/json/', {
@@ -45,7 +58,7 @@ export const fetchPackageInfo = (id, Phone) => async (dispatch) => {
     dispatch(fetchPackageInfoSuccess(data.data[0]));
     dispatch(setCurrentTrack(id));
     dispatch(setHistoryTracks(id));
-    dispatch(addToHistoryPage(data.data[0]))
+    dispatch(addToHistoryPage(data.data[0]));
     if (Phone) {
       if (!data.warnings[0]) {
         dispatch(setPhoneHistory(Phone));

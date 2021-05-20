@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, InputGroup, FormControl, Form } from 'react-bootstrap';
+import {
+  Button, InputGroup, FormControl, Form,
+} from 'react-bootstrap';
 import { ImSearch } from 'react-icons/im';
 import { useTranslation } from 'react-i18next';
 import Validator from '../../helpers/validator';
@@ -81,7 +83,7 @@ const FormMain = () => {
                 <Form.Control.Feedback type="invalid" key={error}>
                   {t(error)}
                 </Form.Control.Feedback>
-              ))
+            ))
             : null}
         </InputGroup>
       </Form.Group>

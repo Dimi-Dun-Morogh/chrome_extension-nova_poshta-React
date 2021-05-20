@@ -6,7 +6,6 @@ import notificationsReducer from './notifications_store/notifications.reducer';
 import packagesReducer from './packages/packages.reducer';
 import historyReducer from './history/history.reducer';
 
-
 const persistConfig = {
   key: 'rootNp',
   storage,
@@ -20,3 +19,5 @@ const rootReducer = combineReducers({
 });
 
 export default persistReducer(persistConfig, rootReducer);
+
+export type RootStateType = ReturnType<typeof rootReducer>;

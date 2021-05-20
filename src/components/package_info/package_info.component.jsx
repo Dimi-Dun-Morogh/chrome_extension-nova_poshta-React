@@ -1,14 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useTranslation  } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import PhoneForm from '../phone_form/phone_form.component';
 import './package_info.styles.css';
 
-
 const PackageInfo = () => {
   const oldPhone = useSelector((state) => state.history.oldPhoneNumb);
-  const packageState = useSelector((state)=>state.packages);
-  const { packageInfo, showDetailed} = packageState;
+  const packageState = useSelector((state) => state.packages);
+  const { packageInfo, showDetailed } = packageState;
   const { t } = useTranslation();
 
   if (!packageInfo) return null;
@@ -49,7 +48,10 @@ const PackageInfo = () => {
           <li>{RecipientFullName}</li>
           <li>{t('package_info.sender_name')}:</li>
           <li>{SenderFullNameEW}</li>
-          <li>{t('package_info.phone_number')} {PhoneSender ? t('package_info.phone_sender') : t('package_info.phone_receiver')}:</li>
+          <li>
+            {t('package_info.phone_number')}{' '}
+            {PhoneSender ? t('package_info.phone_sender') : t('package_info.phone_receiver')}:
+          </li>
           <li>{PhoneSender || PhoneRecipient}</li>
           <li>{t('package_info.package_description')}:</li>
           <li>{CargoDescriptionString}</li>
@@ -58,7 +60,7 @@ const PackageInfo = () => {
         </ul>
       )}
 
-      <PhoneForm  oldPhone={oldPhone}/>
+      <PhoneForm oldPhone={oldPhone} />
     </div>
   );
 };

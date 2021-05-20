@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Button, InputGroup, FormControl, Form } from 'react-bootstrap';
-import { useTranslation  } from 'react-i18next';
+import {
+  Button, InputGroup, FormControl, Form,
+} from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import { ImPhone } from 'react-icons/im';
 import Validator from '../../helpers/validator';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './phone_form.styles.css';
 
-const PhoneForm = ({oldPhone}) => {
+const PhoneForm = ({ oldPhone }) => {
   const [phoneNum, setPhoneNum] = useState(oldPhone);
   const { t } = useTranslation();
   const currentTrack = useSelector((state) => state.packages.currentTrack);
@@ -75,7 +77,7 @@ const PhoneForm = ({oldPhone}) => {
               <Form.Control.Feedback type="invalid" key={error}>
                 {t(error)}
               </Form.Control.Feedback>
-            ))
+          ))
           : null}
       </InputGroup>
       <span>{t('phone_form_description')}</span>

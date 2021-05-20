@@ -16,9 +16,9 @@ function App() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  useEffect(()=>{
-    history.push("/")
-  },[])
+  useEffect(() => {
+    history.push('/');
+  }, []);
 
   return (
     <div className="App">
