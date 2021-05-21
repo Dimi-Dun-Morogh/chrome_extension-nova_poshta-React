@@ -1,9 +1,19 @@
 const numbers = /^[0-9]+$/;
 
-export interface IValidationError {
+export type IValidationError = {
   label: string,
   error: string,
-}
+};
+
+export type ValidationStateType = {
+  errors: {
+    [key:string]: IValidationError[]
+  },
+  isValid: boolean,
+  success: {
+    [key:string]: boolean
+  }
+};
 
 export default function Validate(label:string, value:string) {
   const errors: IValidationError[] = [];

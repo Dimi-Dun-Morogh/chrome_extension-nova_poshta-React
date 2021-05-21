@@ -5,14 +5,15 @@ import { Nav } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { ImHome3, ImClock } from 'react-icons/im';
 import './route_switcher.styles.css';
+import { RootStateType } from '../../redux/root-reducer';
 
 const RouteSwitcher = () => {
   const history = useHistory();
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-  const currentTrack = useSelector((state) => state.packages.currentTrack);
+  const currentTrack = useSelector((state: RootStateType) => state.packages.currentTrack);
 
-  useEffect(() => null, [currentTrack]); // ререндер на переход из history-page
+  useEffect(() => {}, [currentTrack]); // ререндер на переход из history-page
 
   const goHome = () => {
     history.push('/');

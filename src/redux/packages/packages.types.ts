@@ -51,6 +51,7 @@ export interface IPackage {
   PaymentStatusDate: string;
   AmountToPay: string;
   AmountPaid: string;
+  PhoneRecipient?:string;
   LastAmountTransferGM: string;
   LastAmountReceivedCommissionGM: string;
   DocumentCost: string;

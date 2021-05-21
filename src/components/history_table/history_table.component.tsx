@@ -5,13 +5,18 @@ import { useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './history_table.styles.css';
+import { IPackage } from '../../redux/packages/packages.types';
 
-const HistoryTable = ({ packages }) => {
+type HistoryTableProps = {
+  packages: IPackage[]
+};
+
+const HistoryTable = ({ packages } : HistoryTableProps) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const { t } = useTranslation();
 
-  const handleClick = (tnn) => {
+  const handleClick = (tnn:string) => {
     dispatch(fetchPackageInfo(tnn));
     history.push('/');
   };
@@ -30,7 +35,6 @@ const HistoryTable = ({ packages }) => {
             <td>
               <span
                 className="history-table-number"
-                href="#"
                 onClick={() => handleClick(pack.Number)}
               >
                 {pack.Number}

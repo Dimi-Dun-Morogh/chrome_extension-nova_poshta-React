@@ -5,12 +5,18 @@ import {
 } from 'react-bootstrap';
 import { ImSearch } from 'react-icons/im';
 import { useTranslation } from 'react-i18next';
-import Validator from '../../helpers/validator';
+import Validator, { ValidationStateType } from '../../helpers/validator';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './form.styles.css';
+import { RootStateType } from '../../redux/root-reducer';
+
+export type InputNameVal = {
+  name:string,
+  value:string,
+};
 
 const FormMain = () => {
-  const currentTrack = useSelector((state) => state.packages.currentTrack);
+  const currentTrack = useSelector((state: RootStateType) => state.packages.currentTrack);
   const { t } = useTranslation();
 
   const [trackNumber, setTrackNumber] = useState(currentTrack);
@@ -22,11 +28,11 @@ const FormMain = () => {
     success: {
       trackNumb: false,
     },
-  });
+  } as ValidationStateType);
 
   const dispatch = useDispatch();
 
-  const handleInputeValidation = ({ name, value }) => {
+  const handleInputeValidation = ({ name, value } : InputNameVal) => {
     const isValid = Validator(name, value.trim());
     const { errors, success } = validationState;
     success[name] = !isValid.length;
@@ -43,15 +49,15 @@ const FormMain = () => {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSubmit();
     }
   };
-
-  const handleInput = (e) => {
+  const handleInput = (e:React.ChangeEvent<HTMLInputElement>) => {
     setTrackNumber(e.target.value);
     const { errors } = validationState;
+    //! e.target.name
     errors.trackNumb = [];
     setValidationState({ ...validationState, errors });
   };
@@ -66,10 +72,10 @@ const FormMain = () => {
         <InputGroup className="mb-3" size="sm">
           <FormControl
             placeholder={t('placeholders.main_form')}
-            onChange={(e) => handleInput(e)}
-            onKeyUp={handleKeyPress}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
+            onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => handleKeyPress(e)}
             name="trackNumb"
-            isInvalid={validationState.errors.trackNumb.length}
+            isInvalid={Boolean(validationState.errors.trackNumb.length)}
             value={trackNumber}
           />
           <InputGroup.Prepend>

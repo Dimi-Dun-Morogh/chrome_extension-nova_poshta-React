@@ -1,5 +1,5 @@
 >Nova Poshta track extension - расширение для браузера, позволяет отслеживать посылки в сети доставки новая почта. Доступно в Chrome/Firefox.
-Создано на фреймворке React.
+Создано на React.
 Chrome -  https://chrome.google.com/webstore/detail/novaposhta-tracking/dlkjflpmejaehpobbokpgofkbfkojpea?hl=ru&authuser=0
 
 ##### nova poshta track extension:
@@ -29,5 +29,5 @@ Chrome -  https://chrome.google.com/webstore/detail/novaposhta-tracking/dlkjflpm
 - [x] - записывать трек номера  из поиска в локал сторейдж и показывать их внизу поп-апа, сделать кликабельными (05.05.2021) :white_check_mark:
 - [x] - сделать страницу истории через табсы или роутер туда автоматически добавлять информацию по
     каждой найденной посылке(маршрут, адрес доставки и т.д) (14.05.2021) :white_check_mark:
-- [ ] - перенести все на тайпскрипт
+- [x] - перенести все на тайпскрипт (21.05.2021) :white_check_mark:
 - [ ] - сделать какой нибудь спиннер

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import { RootStateType } from '../../redux/root-reducer';
 
-const FooterWithHistory = () => {
+const FooterWithHistory = (): JSX.Element | null => {
   const { t } = useTranslation();
   const oldTracks = useSelector((state: RootStateType) => state.history.historyTracks);
   const dispatch = useDispatch();

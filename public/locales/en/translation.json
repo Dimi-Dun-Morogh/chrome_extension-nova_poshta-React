@@ -14,7 +14,7 @@
     "phone_number": "phone number",
     "phone_sender": "sender",
     "phone_receiver": "receiver",
-    "package_description": "package_description",
+    "package_description": "package description",
     "estimated_delivery_time": "estimated delivery time"
   },
   "phone_form_description": "specify the recipient's or sender's phone number for add. information",

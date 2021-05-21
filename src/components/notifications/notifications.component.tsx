@@ -1,9 +1,16 @@
 import React from 'react';
 import { Toast } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import { NotificationType } from '../../redux/notifications_store/notifications.types';
 import './notifications.styles.css';
 
-const Notification = ({ showToast, hideToast, notification }) => {
+type NotificationPropTypes = {
+  showToast: boolean,
+  hideToast: ()=>void,
+  notification: NotificationType
+};
+
+const Notification = ({ showToast, hideToast, notification } : NotificationPropTypes) => {
   const { text, header, classBg } = notification;
   const { t } = useTranslation();
   return (

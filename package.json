@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx eslint . --ext .ts"
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix --color"
   },
   "eslintConfig": {
     "extends": [
@@ -52,6 +53,7 @@
     "@types/jest": "^26.0.23",
     "@types/node": "^15.3.0",
     "@types/react": "^17.0.6",
+    "@types/react-bootstrap": "^0.32.25",
     "@types/react-dom": "^17.0.5",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",

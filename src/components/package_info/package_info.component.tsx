@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PhoneForm from '../phone_form/phone_form.component';
 import './package_info.styles.css';
+import { RootStateType } from '../../redux/root-reducer';
 
 const PackageInfo = () => {
-  const oldPhone = useSelector((state) => state.history.oldPhoneNumb);
-  const packageState = useSelector((state) => state.packages);
+  const oldPhone = useSelector((state :RootStateType) => state.history.oldPhoneNumb);
+  const packageState = useSelector((state :RootStateType) => state.packages);
   const { packageInfo, showDetailed } = packageState;
   const { t } = useTranslation();
 

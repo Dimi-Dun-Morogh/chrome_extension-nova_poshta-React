@@ -9,10 +9,15 @@ import Notification from './components/notifications/notifications.component';
 import { hideErrorToast } from './redux/notifications_store/notifications.actions';
 import HomePage from './pages/home-page/home-page';
 import HistoryPage from './pages/history-page/history-page';
+import { RootStateType } from './redux/root-reducer';
 
 function App() {
-  const currentNotification = useSelector((state) => state.notifications.currentNotification);
-  const showNotification = useSelector((state) => state.notifications.showNotification);
+  const currentNotification = useSelector(
+    (state: RootStateType) => state.notifications.currentNotification,
+  );
+  const showNotification = useSelector(
+    (state: RootStateType) => state.notifications.showNotification,
+  );
   const dispatch = useDispatch();
   const history = useHistory();
 

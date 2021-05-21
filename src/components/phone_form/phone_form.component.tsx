@@ -5,14 +5,15 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { ImPhone } from 'react-icons/im';
-import Validator from '../../helpers/validator';
+import Validator, { ValidationStateType } from '../../helpers/validator';
 import { fetchPackageInfo } from '../../redux/packages/packages.actions';
 import './phone_form.styles.css';
+import { RootStateType } from '../../redux/root-reducer';
 
-const PhoneForm = ({ oldPhone }) => {
+const PhoneForm = ({ oldPhone } : { oldPhone:string }) => {
   const [phoneNum, setPhoneNum] = useState(oldPhone);
   const { t } = useTranslation();
-  const currentTrack = useSelector((state) => state.packages.currentTrack);
+  const currentTrack = useSelector((state :RootStateType) => state.packages.currentTrack);
   const [validationState, setValidationState] = useState({
     errors: {
       phoneNumb: [],
@@ -21,9 +22,9 @@ const PhoneForm = ({ oldPhone }) => {
     success: {
       phoneNumb: false,
     },
-  });
+  } as ValidationStateType);
 
-  const handleInputValidation = ({ name, value }) => {
+  const handleInputValidation = ({ name, value } :{ name:string, value:string }) => {
     const num = value[0] === '+' ? value.slice(1) : value;
     const isValid = Validator(name, num.trim());
     const { errors, success } = validationState;
@@ -43,14 +44,14 @@ const PhoneForm = ({ oldPhone }) => {
     }
   };
 
-  const handleInput = (e) => {
+  const handleInput = (e:React.ChangeEvent<HTMLInputElement>) => {
     setPhoneNum(e.target.value);
     const { errors } = validationState;
     errors.phoneNumb = [];
     setValidationState({ ...validationState, errors });
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSubmit();
     }
@@ -62,9 +63,9 @@ const PhoneForm = ({ oldPhone }) => {
         <FormControl
           value={phoneNum}
           placeholder={t('placeholders.phone_form')}
-          onChange={(e) => handleInput(e)}
+          onChange={(e : React.ChangeEvent<HTMLInputElement>) => handleInput(e)}
           onKeyUp={handleKeyPress}
-          isInvalid={validationState.errors.phoneNumb.length}
+          isInvalid={Boolean(validationState.errors.phoneNumb.length)}
         />
         <InputGroup.Prepend>
           <Button variant="danger" className="form-button" onClick={handleSubmit}>

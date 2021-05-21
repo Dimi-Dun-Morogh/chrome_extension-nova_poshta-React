@@ -3,5 +3,5 @@ body {
   font-family: "Segoe UI", Tahoma, sans-serif;
   font-size: 75%;
   margin: 8px!important;
-  background-image: url('./assets/bg.png');
+  background-image: url(./assets/bg.png);
 }

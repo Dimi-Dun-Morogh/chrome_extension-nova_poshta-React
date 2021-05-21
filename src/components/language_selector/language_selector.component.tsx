@@ -4,11 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { Form } from 'react-bootstrap';
 import { setLanguageHistory } from '../../redux/history/history.actions';
 import './language_selector.styles.css';
+import { RootStateType } from '../../redux/root-reducer';
 
 const LanguageSelect = () => {
-  const savedLang = useSelector((state) => state.history.savedLanguage);
+  const savedLang = useSelector((state: RootStateType) => state.history.savedLanguage);
   const dispatch = useDispatch();
-  const handleLanguage = (lang) => {
+  const handleLanguage = (lang:string) => {
     dispatch(setLanguageHistory(lang));
   };
 
