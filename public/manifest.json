@@ -1,11 +1,11 @@
 {
-  "manifest_version": 2,
-  "version": "0.1.7",
+  "manifest_version": 3,
+  "version": "0.1.8",
   "short_name": "Nova Poshta Track",
   "name": "__MSG_extName__",
   "description": "__MSG_appDesc__",
   "default_locale": "ru",
-  "browser_action": {
+  "action": {
     "default_title": "nova poshta",
     "default_popup": "popup.html"
   },
@@ -13,6 +13,5 @@
     "16": "img/icon-16.png",
     "48": "img/icon-48.png",
     "128": "img/icon-128.png"
-  },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  }
 }
